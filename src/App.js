@@ -1,10 +1,21 @@
 import Kilt from '@kiltprotocol/sdk-js'
+import { useEffect, useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const mnemonic = Kilt.Identity.generateMnemonic()
-  const identity = Kilt.Identity.buildFromMnemonic(mnemonic)
+  const [identity, setIdentity] = useState(null)
+  useEffect(() => {
+    const generateIdentity = async () => {
+      await Kilt.init()
+      const mnemonic = Kilt.Identity.generateMnemonic()
+      const newIdentity = Kilt.Identity.buildFromMnemonic(mnemonic)
+      setIdentity(newIdentity)
+    }
+    
+    generateIdentity()
+  }, [])
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -13,7 +24,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p>
-          {identity.address}
+          {identity?.address}
         </p>
         <a
           className="App-link"
