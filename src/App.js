@@ -24,7 +24,9 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <p>
-          {identity?.address}
+          <div>Generated KILT address:</div>
+          <strong>{identity?.address}</strong>
+          <div>Reload page to generate a new one</div>
         </p>
         <a
           className="App-link"
