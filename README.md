@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+For compatibility with the KILT SDK and the underlying `@polkadot/api` package, we added the `react-app-rewired` and configured it in `config-overrides.js` to support `.mjs` files.
+
 ## Available Scripts
 
 In the project directory, you can run:
